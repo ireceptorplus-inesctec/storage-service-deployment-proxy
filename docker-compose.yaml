@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  storage-service-deployment-proxy:
+    build: ./
+    volumes:
+      - ../src:/storage-service-ui/src
+    ports:
+      - 80:80
+    restart: always
+    networks:
+      - storage-service-network
+
+
+networks:
+  default:
+
+  storage-service-network:
+    external: true
